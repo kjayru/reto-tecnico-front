@@ -18,7 +18,7 @@ const ContentSection = () => {
   const [globalSearch, setGlobalSearch] = useState('');
 
   useEffect(() => {
-    fetch('https://backend-sistema-gestion.test/api/getdata-all')
+    fetch('http://retoback.cobosdev.com/api/getdata-all')
       .then(response => response.json())
       .then(data => {
         const formattedData = data.map((item, index) => ({
@@ -132,8 +132,9 @@ const ContentSection = () => {
                 <Button icon={<PlusOutlined />} />
                 <Button icon={<ArrowUpOutlined />} style={{ marginLeft: '8px' }} />
                 <Button icon={<ArrowDownOutlined />} style={{ marginLeft: '8px' }} />
-              </div>
             </div>
+      </div>
+
       <Tabs defaultActiveKey="1" >
         <TabPane tab="Divisiones" key="1">
           <div >
@@ -170,7 +171,6 @@ const ContentSection = () => {
           {/* Contenido para la pestaña de Colaboradores */}
         </TabPane>
       </Tabs>
-
       <Modal
         title={`Filtrar ${filterColumn}`}
         visible={filterModalVisible}
